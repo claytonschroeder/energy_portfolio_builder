@@ -153,9 +153,9 @@ class UserProfile extends Component {
       <div className="user-profile">
         <h1>User Profile</h1>
         <Info info={this.state.user.info} />
-        <Summary />
-        <Experience />
-        <Education />
+        <Summary summary={this.state.user.summary} />
+        <Experience experience={this.state.user.experience}/>
+        <Education education={this.state.user.education} />
         <Skills />
         <Portfolio />
         <Awards />

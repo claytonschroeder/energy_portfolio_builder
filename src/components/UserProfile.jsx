@@ -149,16 +149,17 @@ class UserProfile extends Component {
 
 
   render() {
+    const user = this.state.user ? this.state.user : null
     return (
       <div className="user-profile">
         <h1>User Profile</h1>
-        <Info info={this.state.user.info} />
-        <Summary summary={this.state.user.summary} />
-        <Experience experience={this.state.user.experience}/>
-        <Education education={this.state.user.education} />
-        <Skills />
-        <Portfolio />
-        <Awards />
+        <Info info={ user.info } />
+        <Summary summary={ user.summary } />
+        <Experience experience={ user.experience }/>
+        <Education education={ user.education } />
+        <Skills skills={ user.skills }/>
+        <Portfolio portfolio={ user.portfolio } />
+        <Awards awards={ user.awards }/>
         <Contact />
       </div>
     );

@@ -19,7 +19,7 @@ class Info extends Component {
         <h2>{info.title}</h2>
         <ul className="social-media-info">
           {
-            info.socialMedia.map((media, index) => {
+            info && info.socialMedia.map((media, index) => {
               return (
                 <li className={ `social-${media.type}` } key={index}>
                   <a href={media.url}>{media.type}</a>

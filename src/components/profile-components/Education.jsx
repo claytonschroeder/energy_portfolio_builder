@@ -19,7 +19,7 @@ class Education extends Component {
         <div className="education-content">
           <ul>
           {
-            education.map((data, index) => {
+            education && education.map((data, index) => {
               return (
                 <li key={index}>
                   <div className="education-single">

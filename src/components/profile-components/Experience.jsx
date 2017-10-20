@@ -20,7 +20,7 @@ class Experience extends Component {
         <div className="experience-content">
           <ul>
           {
-            experience.map((data, index) => {
+            experience && experience.map((data, index) => {
               return (
                 <li key={index}>
                   <div className="experience-single">

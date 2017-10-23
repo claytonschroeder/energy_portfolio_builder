@@ -107,21 +107,21 @@ class UserProfile extends Component {
           {
             title: 'Money on The Board',
             link: 'http://www.someImage.com',
-            image: '/images/moneyOnTheBoard.jpg',
+            image: 'https://i.pinimg.com/736x/d3/aa/ff/d3aaff3f37d8d8641a90f20d6b35430e--dude-perfect-backpack.jpg',
             date: 'June 2010',
             detail: 'ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.'
           },
           {
             title: 'Chatty App',
             link: 'http://www.someImage.com',
-            image: '/images/chattyApp.jpg',
+            image: 'https://i.pinimg.com/736x/d3/aa/ff/d3aaff3f37d8d8641a90f20d6b35430e--dude-perfect-backpack.jpg',
             date: 'June 2006',
             detail: 'ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.'
           },
           {
             title: 'Jungle',
             link: 'http://www.someImage.com',
-            image: '/images/jungle.jpg',
+            image: 'https://i.pinimg.com/736x/d3/aa/ff/d3aaff3f37d8d8641a90f20d6b35430e--dude-perfect-backpack.jpg',
             date: 'June 2004',
             detail: 'ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.'
           }

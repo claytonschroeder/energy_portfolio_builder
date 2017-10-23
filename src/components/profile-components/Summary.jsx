@@ -15,7 +15,7 @@ class Summary extends Component {
     return (
       <div className="summary profile-component">
         <div className="section-title">
-          <h1>Summary</h1>
+          <h2>Summary</h2>
         </div>
         <div className="section-content">
           <p>{summary.detail}</p>

@@ -15,7 +15,7 @@ class Education extends Component {
 
     return (
       <div className="education profile-component">
-        <h1>Education</h1>
+        <h2>Education</h2>
         <div className="education-content">
           <ul>
           {

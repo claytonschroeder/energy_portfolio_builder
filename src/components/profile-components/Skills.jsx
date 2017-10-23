@@ -15,12 +15,13 @@ class Skills extends Component {
 
     return (
       <div className="skills profile-component">
-        <h1>Skills</h1>
+        <h2>Skills</h2>
         <ul>
           {
             skills && skills.map((data, index) => {
               return (
-                <li className={data.category.toLowerCase()} key={index}>{data.name}
+                <li className={data.category.toLowerCase()} key={index}>
+                  <h3>{data.name}</h3>
                 </li>
               )
             })

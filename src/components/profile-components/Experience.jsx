@@ -16,7 +16,7 @@ class Experience extends Component {
 
     return (
       <div className="experience profile-component">
-        <h1>Experience</h1>
+        <h2>Experience</h2>
         <div className="experience-content">
           <ul>
           {

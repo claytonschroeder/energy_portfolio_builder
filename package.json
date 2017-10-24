@@ -1,14 +1,14 @@
 {
-  "name": "aluminum-sparrow",
+  "name": "msu-energy-portfolio",
   "version": "1.0.0",
-  "description": "A resume generator built in node and react.",
+  "description": "Energy portfolio builder",
   "scripts": {
     "lint": "eslint --ext .jsx,.js src",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joshcoles/aluminum-sparrow.git"
+    "url": "https://github.com/claytonschroeder/energy_portfolio_builder.git"
   },
   "keywords": [
     "react",
@@ -18,9 +18,9 @@
   "author": "Josh and Clayton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noahlotzer/react-simple-boilerplate/issues"
+    "url": "https://github.com/claytonschroeder/energy_portfolio_builder/issues"
   },
-  "homepage": "https://github.com/joshcoles/aluminum-sparrow.git",
+  "homepage": "https://github.com/claytonschroeder/energy_portfolio_builder.git",
   "engines": {
     "node": ">=6.0.0"
   },

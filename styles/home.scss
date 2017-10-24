@@ -1,61 +1,29 @@
-body {
-  font-family: Helvetica, sans-serif;
-}
-
-h1 {
-  color: black;
-}
-
-.user-profile {
-  border: 1px solid black;
-  padding: 20px;
-}
-
-.profile-component {
-  margin: 10px 0;
-  padding: 10px;
-}
-
-.awards {
-  border: 1px solid blue;
-}
-
-.contact {
-  border: 1px solid green;
-}
-
-.education {
-  border: 1px solid yellow;
-}
-
-.experience {
-  border: 1px solid orange;
-}
-
-.info {
-  border: 1px solid red;
-}
-
-.portfolio {
-  border: 1px solid pink;
-}
-
-.skills {
-  border: 1px solid purple;
-}
-
-.summary {
-  border: 1px solid blue;
-}
-
-.portfolio-single-image {
-  img {
-    height: auto;
-    width: 200px;
+.options-container {
+  display: flex;
+  .option-row {
+    width: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
+    p {
+      padding: 5px;
+      width: 100%
+    }
+    .not-selected {
+      background-color: #eee;
+    }
+    .disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+    .selected {
+      background-color: #68c85c;
+      color: green;
+    }
+    p:hover {
+      cursor: pointer;
+    }
   }
 }
-
-
 
 
 

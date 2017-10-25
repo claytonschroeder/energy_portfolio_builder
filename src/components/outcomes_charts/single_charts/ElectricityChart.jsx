@@ -11,11 +11,13 @@ class ElectricityChart extends Component {
     const electricitySum                    = this.props.electricitySum;
     const electricityRequirementPercentage  = this.props.electricityRequirementPercentage;
     const electricityDemandPercentage       = this.props.electricityDemandPercentage;
-    const statusMessage = electricityDemandPercentage <= electricityRequirementPercentage - 10 ? (<span className='status exceeded'>Status: Exceeding</span>) : electricityDemandPercentage <= electricityRequirementPercentage ? (<span className='status passed'>Status: Passed</span>) : (<span className='status not-met'>Status: Not Met</span>)
+    const statusMessage = electricityDemandPercentage <= electricityRequirementPercentage - 10 ? (<div className='exceeded'>Status: Exceeding</div>) : electricityDemandPercentage <= electricityRequirementPercentage ? (<div className='passed'>Status: Passed</div>) : (<div className='not-met'>Status: Not Met</div>)
     return (
       <div className='chart-area'>
-        { statusMessage }
-        <span>Electricity MW: { electricitySum }</span>
+        <div className="status">
+          { statusMessage }
+          <div className='chart-title'>Electricity MW: { electricitySum }</div>
+        </div>
         <div className="progress-bar">
           <div className="ticks-container">
             <div style={ { 'top': 0 + '%'} } className="ticks">200</div>

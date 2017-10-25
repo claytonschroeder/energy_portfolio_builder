@@ -16,7 +16,7 @@ class Efficiency extends Component {
           efficiency && efficiency.map((item, index) => {
             const className = item.selected ? 'selected' : 'not-selected'
             return (
-              <div key={ index } className={ className } onClick={ () => this.props.selectEfficiency(item.name, index) } >{ item.name }</div>
+              <div key={ index } id='parent-container' className={ className + ' efficiency-options' } onClick={ () => this.props.selectEfficiency(item.name, index) } >{ item.name }</div>
             )
           })
         }

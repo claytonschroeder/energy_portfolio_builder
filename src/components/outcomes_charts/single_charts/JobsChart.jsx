@@ -10,11 +10,13 @@ class JobsChart extends Component {
   render() {
     const jobsSum         = this.props.jobsSum;
     const jobsPercentage  = this.props.jobsPercentage;
-    const statusMessage   = jobsSum >= 15 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const statusMessage   = jobsSum >= 15 ? (<div className='passed'>Status: Passed</div>) : (<div className='exceeded'>Status: Not Met</div>)
     return (
       <div className='chart-area'>
-        { statusMessage }
-        <span>New Local Jobs:  { jobsSum }</span>
+        <div className="status">
+          { statusMessage }
+          <div className='chart-title'>New Local Jobs:  { jobsSum }</div>
+        </div>
         <div className="progress-bar">
           <div className="ticks-container">
             <div style={ { 'top': 0 + '%'} } className="ticks">100</div>

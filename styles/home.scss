@@ -1,16 +1,18 @@
 .options-container {
   display: flex;
   .option-row {
-    width: 25%;
-    min-width: 350px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: max-content;
+    padding: 10px;
+    background-color: #d4ffff;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid;
     div {
       padding: 5px;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .not-selected {
-      background-color: #eee;
+      background-color: #fff;
     }
     .disabled {
       pointer-events: none;
@@ -21,6 +23,10 @@
       color: green;
     }
   }
+}
+
+.efficiency-options:hover {
+  cursor: pointer;
 }
 
 
@@ -37,11 +43,12 @@
 }
 
 .remove:hover, .add:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 #parent-container {
-  width:100%;
+  border-radius: 20px;
+  border: 1px solid;
   text-align:center;
   #left {
     float:left;

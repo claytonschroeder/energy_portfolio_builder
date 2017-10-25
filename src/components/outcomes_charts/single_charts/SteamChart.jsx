@@ -11,11 +11,13 @@ class SteamChart extends Component {
     const steamSum                    = this.props.steamSum;
     const steamRequirementPercentage  = this.props.steamRequirementPercentage;
     const steamDemandPercentage       = this.props.steamDemandPercentage;
-    const statusMessage = steamDemandPercentage <= steamRequirementPercentage - 10 ? (<span className='status exceeded'>Status: Exceeding</span>) : steamDemandPercentage <= steamRequirementPercentage ? (<span className='status passed'>Status: Passed</span>) : (<span className='status not-met'>Status: Not Met</span>)
+    const statusMessage = steamDemandPercentage <= steamRequirementPercentage - 10 ? (<div className='exceeded'>Status: Exceeding</div>) : steamDemandPercentage <= steamRequirementPercentage ? (<div className='passed'>Status: Passed</div>) : (<div className='not-met'>Status: Not Met</div>)
     return (
       <div className='chart-area'>
-        { statusMessage }
-        <span>Steam (000) lbs/hr: { steamSum }</span>
+        <div className='status'>
+          { statusMessage }
+          <div className='chart-title'>Steam (000) lbs/hr: { steamSum }</div>
+        </div>
         <div className="progress-bar">
           <div className="ticks-container">
             <div style={ { 'top': 0 + '%'} } className="ticks">2000</div>

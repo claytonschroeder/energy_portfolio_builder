@@ -10,11 +10,13 @@ class GhgChart extends Component {
   render() {
     const ghgSum          = this.props.ghgSum;
     const ghgPercentage   = this.props.ghgPercentage;
-    const statusMessage   = ghgSum >= 35 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const statusMessage   = ghgSum >= 35 ? (<div className='passed'>Status: Passed</div>) : (<div className='exceeded'>Status: Not Met</div>)
     return (
       <div className='chart-area'>
-        { statusMessage }
-        <span>GHG: { ghgSum }%</span>
+        <div className="status">
+          { statusMessage }
+          <div className='chart-title'>GHG: { ghgSum }%</div>
+        </div>
         <div className="progress-bar">
           <div className="ticks-container">
             <div style={ { 'top': 0 + '%'} } className="ticks">100%</div>

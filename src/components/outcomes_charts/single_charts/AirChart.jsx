@@ -10,11 +10,13 @@ class AirChart extends Component {
   render() {
     const airSum          = this.props.airSum;
     const airPercentage   = this.props.airPercentage;
-    const statusMessage   = airSum >= 35 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const statusMessage   = airSum >= 35 ? (<div className='passed'>Status: Passed</div>) : (<div className='exceeded'>Status: Not Met</div>)
     return (
       <div className='chart-area'>
-        { statusMessage }
-        <span>Air Emissions: { airSum }%</span>
+        <div className="status">
+          { statusMessage }
+          <div className='chart-title'>Air Emissions: { airSum }%</div>
+        </div>
         <div className="progress-bar">
           <div className="ticks-container">
             <div style={ { 'top': 0 + '%'} } className="ticks">100%</div>

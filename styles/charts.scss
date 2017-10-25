@@ -7,19 +7,45 @@
 .flex-container {
   display: flex;
   .chart-area {
-    width: max-content;
-    margin-right: 40px
+    width: 160px;
+    margin: 10px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    .status {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .passed {
+      color: green;
+    }
+    .exceeded {
+      color: red;
+    }
+    .not-met {
+      color: blue;
+    }
   }
 }
 
 .demand-container {
-  width: 25%;
-  min-width: 400px;
+  width: max-content;
+  padding: 10px;
+  background-color: #bce6e6;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 5px;
 }
 
 .performance-container {
-  width: 75%;
-  min-width: 1200px;
+  width: max-content;
+  padding: 10px;
+  background-color: #98f4b4;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 5px;
 }
 
 .vertical .progress-bar {
@@ -77,16 +103,4 @@
 }
 
 .chart-area {
-  .status {
-    display: flex;
-  }
-  .passed {
-    color: green;
-  }
-  .exceeded {
-    color: red;
-  }
-  .not-met {
-    color: blue;
-  }
 }

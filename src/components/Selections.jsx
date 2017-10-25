@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import PowerPlant from './power_options/PowerPlant.jsx'
-import Decentralized from './power_options/Decentralized.jsx'
-import OffCampus from './power_options/OffCampus.jsx'
-import Efficiency from './efficiency_options/Efficiency.jsx'
+import PowerPlant         from './power_options/PowerPlant.jsx'
+import Decentralized      from './power_options/Decentralized.jsx'
+import OffCampus          from './power_options/OffCampus.jsx'
+import Efficiency         from './efficiency_options/Efficiency.jsx'
 
 class Selections extends Component {
   constructor(props) {

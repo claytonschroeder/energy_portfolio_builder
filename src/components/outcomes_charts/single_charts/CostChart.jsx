@@ -10,7 +10,7 @@ class CostChart extends Component {
   render() {
     const costSum         = this.props.costSum;
     const costPercentage  = this.props.costPercentage;
-    const statusMessage = costSum >= 1500 ? (<span className='status exceeded'>Status: Exceeding</span>) : (<span className='status passed'>Status: Passed</span>)
+    const statusMessage   = costSum >= 1500 ? (<span className='status exceeded'>Status: Exceeding</span>) : (<span className='status passed'>Status: Passed</span>)
     return (
       <div className='chart-area'>
         { statusMessage }

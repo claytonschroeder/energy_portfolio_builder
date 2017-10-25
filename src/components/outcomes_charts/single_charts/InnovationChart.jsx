@@ -10,7 +10,7 @@ class InnovationChart extends Component {
   render() {
     const innovationSum         = this.props.innovationSum;
     const innovationPercentage  = this.props.innovationPercentage;
-    const statusMessage = innovationSum >= 2 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const statusMessage         = innovationSum >= 2 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
     return (
       <div className='chart-area'>
         { statusMessage }

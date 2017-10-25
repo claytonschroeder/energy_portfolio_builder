@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 import SteamChart         from './single_charts/SteamChart.jsx'
 import ElectricityChart   from './single_charts/ElectricityChart.jsx'
 import CostChart          from './single_charts/CostChart.jsx'
@@ -39,14 +38,14 @@ class DemandCharts extends Component {
           <h3>Demand Requirements</h3>
           <div className="flex-container">
             <SteamChart
-              steamSum = { steamSum }
-              steamRequirementPercentage = { steamRequirementPercentage }
-              steamDemandPercentage = { steamDemandPercentage }  />
+              steamSum                    = { steamSum }
+              steamRequirementPercentage  = { steamRequirementPercentage }
+              steamDemandPercentage       = { steamDemandPercentage }  />
 
             <ElectricityChart
-              electricitySum = { electricitySum }
-              electricityRequirementPercentage = { electricityRequirementPercentage }
-              electricityDemandPercentage = { electricityDemandPercentage }  />
+              electricitySum                    = { electricitySum }
+              electricityRequirementPercentage  = { electricityRequirementPercentage }
+              electricityDemandPercentage       = { electricityDemandPercentage }  />
           </div>
         </div>
 

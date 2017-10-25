@@ -10,7 +10,7 @@ class JobsChart extends Component {
   render() {
     const jobsSum         = this.props.jobsSum;
     const jobsPercentage  = this.props.jobsPercentage;
-    const statusMessage = jobsSum >= 15 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const statusMessage   = jobsSum >= 15 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
     return (
       <div className='chart-area'>
         { statusMessage }

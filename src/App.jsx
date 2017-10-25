@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Selections from './components/Selections.jsx';
-import Outcomes from './components/Outcomes.jsx';
-
-import { Grid, Col, Row } from 'react-bootstrap';
+import Selections         from './components/Selections.jsx';
+import Outcomes           from './components/Outcomes.jsx';
 
 class App extends Component {
   constructor(props) {

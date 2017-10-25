@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 
 class Efficiency extends Component {
   constructor(props) {
@@ -9,9 +8,7 @@ class Efficiency extends Component {
   }
 
   render() {
-
     const efficiency = this.props.efficiencyOptions;
-
     return (
       <div className="option-row">
         <h3>Efficiency</h3>

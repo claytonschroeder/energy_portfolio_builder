@@ -8,9 +8,9 @@ class AirChart extends Component {
   }
 
   render() {
-    const airSum         = this.props.airSum;
-    const airPercentage  = this.props.airPercentage;
-    const statusMessage = airSum >= 35 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
+    const airSum          = this.props.airSum;
+    const airPercentage   = this.props.airPercentage;
+    const statusMessage   = airSum >= 35 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Not Met</span>)
     return (
       <div className='chart-area'>
         { statusMessage }

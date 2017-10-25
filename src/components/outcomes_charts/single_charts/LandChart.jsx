@@ -10,7 +10,7 @@ class LandChart extends Component {
   render() {
     const landSum         = this.props.landSum;
     const landPercentage  = this.props.landPercentage;
-    const statusMessage = landSum <= 700 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Exceeding</span>)
+    const statusMessage   = landSum <= 700 ? (<span className='status passed'>Status: Passed</span>) : (<span className='status exceeded'>Status: Exceeding</span>)
     return (
       <div className='chart-area'>
         { statusMessage }

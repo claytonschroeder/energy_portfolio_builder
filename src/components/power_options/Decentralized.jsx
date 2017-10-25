@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 
 class Decentralized extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class Decentralized extends Component {
     const decentralized = this.props.decentralized;
     decentralized.map((item, index) => {
       if(item.selected){
-        counter += 1;
+        counter += item.count;
       }
     })
     return (
@@ -23,8 +22,14 @@ class Decentralized extends Component {
         {
           decentralized && decentralized.map((item, index) => {
             const className = item.selected ? 'selected' : counter >= 3 ? 'not-selected disabled' : 'not-selected'
+            const decreaseDisabled = item.count === 0 ? ' disabled' : ''
+            const increaseDisabled = item.count === 3 ? ' disabled' : ''
             return(
-              <p key={ index } className={ className } onClick={ () => this.props.selectDecentralized(item.name, index) }>{ item.name }</p>
+              <div key={ index } id='parent-container' className={ "item " + className }>
+                <div id='left' className={ 'remove' + decreaseDisabled } onClick={ () => this.props.removeDecentralized(item.name, index) }> - </div>
+                <div id='center' className='item-name'>{ `${item.name} - (${ item.count })` }</div>
+                <div id='right' className={'add' + increaseDisabled } onClick={ () => this.props.addDecentralized(item.name, index)}> + </div>
+              </div>
             )
           })
         }

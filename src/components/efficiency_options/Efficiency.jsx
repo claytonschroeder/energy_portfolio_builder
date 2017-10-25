@@ -9,21 +9,17 @@ class Efficiency extends Component {
   }
 
   render() {
-    let counter = 0;
+
     const efficiency = this.props.efficiencyOptions;
-    efficiency.map((item, index) => {
-      if(item.selected){
-        counter += 1;
-      }
-    })
+
     return (
       <div className="option-row">
-        <h3>{`Efficiency - (${ counter }/1)`}</h3>
+        <h3>Efficiency</h3>
         {
           efficiency && efficiency.map((item, index) => {
-            const className = item.selected ? 'selected' : counter >= 1 ? 'not-selected disabled' : 'not-selected'
+            const className = item.selected ? 'selected' : 'not-selected'
             return (
-              <p key={ index } className={ className } onClick={ () => this.props.selectEfficiency(item.name, index) } >{ item.name }</p>
+              <div key={ index } className={ className } onClick={ () => this.props.selectEfficiency(item.name, index) } >{ item.name }</div>
             )
           })
         }

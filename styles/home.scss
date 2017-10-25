@@ -2,28 +2,64 @@
   display: flex;
   .option-row {
     width: 25%;
+    min-width: 350px;
     padding-left: 10px;
     padding-right: 10px;
-    p {
+    div {
       padding: 5px;
-      width: 100%
+      margin-bottom: 2px;
     }
     .not-selected {
       background-color: #eee;
     }
     .disabled {
       pointer-events: none;
-      cursor: not-allowed;
+      cursor: no-drop;
     }
     .selected {
       background-color: #68c85c;
       color: green;
     }
-    p:hover {
-      cursor: pointer;
-    }
   }
 }
+
+
+.remove {
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
+.add {
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+}
+
+.remove:hover, .add:hover {
+  cursor: pointer
+}
+
+#parent-container {
+  width:100%;
+  text-align:center;
+  #left {
+    float:left;
+    width: 20px;
+  }
+
+  #center {
+    display: inline-block;
+    margin:0 auto;
+  }
+
+  #right {
+    float:right;
+    width: 20px;
+  }
+}
+
+
 
 
 

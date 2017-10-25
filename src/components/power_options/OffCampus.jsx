@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 
 class OffCampus extends Component {
   constructor(props) {
@@ -13,17 +12,23 @@ class OffCampus extends Component {
     const offCampus = this.props.offCampus;
     offCampus.map((item, index) => {
       if(item.selected){
-        counter += 1;
+        counter += item.count;
       }
     })
     return (
       <div className="option-row">
-        <h3>{`Off Campus - (${ counter }/2)`}</h3>
+        <h3>{ `Off Campus - (${ counter }/3)` }</h3>
         {
           offCampus && offCampus.map((item, index) => {
-            const className = item.selected ? 'selected' : counter >= 2 ? 'not-selected disabled' : 'not-selected'
+            const className = item.selected ? 'selected' : counter >= 3 ? 'not-selected disabled' : 'not-selected'
+            const decreaseDisabled = item.count === 0 ? ' disabled' : ''
+            const increaseDisabled = item.count === 3 ? ' disabled' : ''
             return(
-              <p className={ className } key={ index } onClick={ () => this.props.selectOffCampus(item.name, index) }>{ item.name }</p>
+              <div key={ index } id='parent-container' className={ "item " + className }>
+                <div id='left' className={ 'remove' + decreaseDisabled } onClick={ () => this.props.removeOffCampus(item.name, index) }> - </div>
+                <div id='center' className='item-name'>{ `${item.name} - (${ item.count })` }</div>
+                <div id='right' className={'add' + increaseDisabled } onClick={ () => this.props.addOffCampus(item.name, index)}> + </div>
+              </div>
             )
           })
         }

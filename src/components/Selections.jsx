@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Grid, Col, Row } from 'react-bootstrap';
 import PowerPlant from './power_options/PowerPlant.jsx'
 import Decentralized from './power_options/Decentralized.jsx'
 import OffCampus from './power_options/OffCampus.jsx'
@@ -20,17 +19,20 @@ class Selections extends Component {
     return (
       <div className='options-container'>
         <Efficiency
-          selectEfficiency   = { this.props.selectEfficiency }
-          efficiencyOptions = { efficiency }  />
+          selectEfficiency      = { this.props.selectEfficiency }
+          efficiencyOptions     = { efficiency }  />
         <PowerPlant
-          selectPowerPlant   = { this.props.selectPowerPlant }
-          powerPlantOptions = { powerPlant }  />
+          addPowerPlant         = { this.props.addPowerPlant }
+          removePowerPlant      = { this.props.removePowerPlant }
+          powerPlant            = { powerPlant }  />
         <Decentralized
-          selectDecentralized   = { this.props.selectDecentralized }
-          decentralized     = { decentralized }  />
+          addDecentralized      = { this.props.addDecentralized }
+          removeDecentralized   = { this.props.removeDecentralized }
+          decentralized         = { decentralized }  />
         <OffCampus
-          selectOffCampus   = { this.props.selectOffCampus }
-          offCampus         = { offCampus }  />
+          addOffCampus          = { this.props.addOffCampus }
+          removeOffCampus       = { this.props.removeOffCampus }
+          offCampus             = { offCampus }  />
       </div>
     );
   }

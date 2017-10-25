@@ -14,10 +14,12 @@
 
 .demand-container {
   width: 25%;
+  min-width: 400px;
 }
 
 .performance-container {
   width: 75%;
+  min-width: 1200px;
 }
 
 .vertical .progress-bar {

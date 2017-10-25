@@ -19,7 +19,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 0,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Gas Co-firing",
@@ -31,7 +32,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 0,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Bio. Co-firing",
@@ -43,7 +45,8 @@ class App extends Component {
           jobs: 0,
           land: 10,
           innovation: 2,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Natural Gas",
@@ -55,7 +58,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 0,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "New Coal",
@@ -67,7 +71,8 @@ class App extends Component {
           jobs: 5,
           land: 10,
           innovation: 3,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "New Biomass",
@@ -79,7 +84,8 @@ class App extends Component {
           jobs: 6,
           land: 12,
           innovation: 2,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "New Natural Gas",
@@ -91,7 +97,8 @@ class App extends Component {
           jobs: 5,
           land: 2,
           innovation: 2,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "New Nuclear",
@@ -103,7 +110,8 @@ class App extends Component {
           jobs: 20,
           land: 7,
           innovation: 3,
-          selected: false
+          selected: false,
+          count: 0
         }
       ],
       decentralizedOptions: [
@@ -117,7 +125,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 2,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Central Solar Photovoltaic",
@@ -129,7 +138,8 @@ class App extends Component {
           jobs: 5,
           land: 38,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Distributed Solar Photovoltaic",
@@ -141,7 +151,8 @@ class App extends Component {
           jobs: 5,
           land: 38,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Distributed Wind",
@@ -153,7 +164,8 @@ class App extends Component {
           jobs: 5,
           land: 625,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Fuel Cells",
@@ -165,7 +177,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Microturbines",
@@ -177,7 +190,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Small Hydro",
@@ -189,7 +203,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 3,
-          selected: false
+          selected: false,
+          count: 0
         }
       ],
       offCampusOptions: [
@@ -203,7 +218,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 0,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Green Grid",
@@ -215,7 +231,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 2,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Offsite Wind",
@@ -227,7 +244,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 3,
-          selected: false
+          selected: false,
+          count: 0
         },
         {
           name: "Offsite Solar",
@@ -239,7 +257,8 @@ class App extends Component {
           jobs: 0,
           land: 0,
           innovation: 4,
-          selected: false
+          selected: false,
+          count: 0
         }
       ],
       efficiencyOptions: [
@@ -267,41 +286,131 @@ class App extends Component {
           electricityRequirements: 55,
           selected: false
         }
-      ]
+      ],
+      selectedPowerOptions: []
     }
-    this.selectOffCampus = this.selectOffCampus.bind(this);
-    this.selectPowerPlant = this.selectPowerPlant.bind(this);
-    this.selectDecentralized = this.selectDecentralized.bind(this);
+    this.addOffCampus = this.addOffCampus.bind(this);
+    this.removeOffCampus = this.removeOffCampus.bind(this);
+
+    this.addDecentralized = this.addDecentralized.bind(this);
+    this.removeDecentralized = this.removeDecentralized.bind(this);
+
+    this.addPowerPlant = this.addPowerPlant.bind(this);
+    this.removePowerPlant = this.removePowerPlant.bind(this);
+
     this.selectEfficiency = this.selectEfficiency.bind(this);
+
   }
 
-  selectOffCampus(name, index){
-    const newObject = this.state.offCampusOptions[index]
-    newObject.selected = !newObject.selected;
+  addOffCampus(name, index){
+    const newObject = this.state.offCampusOptions[index];
+    const newPowerOptions = this.state.selectedPowerOptions;
+    newPowerOptions.push(newObject);
+    newObject.count += 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
     this.setState(prevState => {
       offCampusOptions: [ ...prevState.offCampusOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
     })
   }
 
-  selectPowerPlant(name, index){
-    const newObject = this.state.powerPlantOptions[index]
-    newObject.selected = !newObject.selected;
+  removeOffCampus(name, index){
+    function remove(array, name){
+      const index = array.findIndex(i => i.name === name)
+      console.log(index)
+      if(index !== -1) {
+        array.splice(index, 1)
+      }
+      return array
+    }
+    const newObject = this.state.offCampusOptions[index];
+    const currentPowerOptions = this.state.selectedPowerOptions;
+    console.log('old: ', currentPowerOptions)
+    const newPowerOptions = remove(currentPowerOptions, name);
+    console.log('new: ', newPowerOptions);
+    newObject.count -= 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
+    this.setState(prevState => {
+      offCampusOptions: [ ...prevState.offCampusOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
+    })
+  }
+
+  addPowerPlant(name, index){
+    const newObject = this.state.powerPlantOptions[index];
+    const newPowerOptions = this.state.selectedPowerOptions;
+    newPowerOptions.push(newObject);
+    newObject.count += 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
     this.setState(prevState => {
       powerPlantOptions: [ ...prevState.powerPlantOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
     })
   }
 
-  selectDecentralized(name, index){
-    const newObject = this.state.decentralizedOptions[index]
-    newObject.selected = !newObject.selected;
+  removePowerPlant(name, index){
+    function remove(array, name){
+      const index = array.findIndex(i => i.name === name)
+      console.log(index)
+      if(index !== -1) {
+        array.splice(index, 1)
+      }
+      return array
+    }
+    const newObject = this.state.powerPlantOptions[index];
+    const currentPowerOptions = this.state.selectedPowerOptions;
+    console.log('old: ', currentPowerOptions)
+    const newPowerOptions = remove(currentPowerOptions, name);
+    console.log('new: ', newPowerOptions);
+    newObject.count -= 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
+    this.setState(prevState => {
+      powerPlantOptions: [ ...prevState.powerPlantOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
+    })
+  }
+
+  addDecentralized(name, index){
+    const newObject = this.state.decentralizedOptions[index];
+    const newPowerOptions = this.state.selectedPowerOptions;
+    newPowerOptions.push(newObject);
+    newObject.count += 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
     this.setState(prevState => {
       decentralizedOptions: [ ...prevState.decentralizedOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
+    })
+  }
+
+  removeDecentralized(name, index){
+    function remove(array, name){
+      const index = array.findIndex(i => i.name === name)
+      console.log(index)
+      if(index !== -1) {
+        array.splice(index, 1)
+      }
+      return array
+    }
+    const newObject = this.state.decentralizedOptions[index];
+    const currentPowerOptions = this.state.selectedPowerOptions;
+    const newPowerOptions = remove(currentPowerOptions, name);
+    newObject.count -= 1;
+    newObject.count === 0 ? newObject.selected = false : newObject.selected = true;
+    this.setState(prevState => {
+      decentralizedOptions: [ ...prevState.decentralizedOptions, newObject ]
+      selectedPowerOptions: [ ...prevState.selectedPowerOptions, newPowerOptions]
     })
   }
 
   selectEfficiency(name, index){
-    const newObject = this.state.efficiencyOptions[index]
-    newObject.selected = !newObject.selected;
+    const newObject = this.state.efficiencyOptions;
+    newObject.map((option, index) => {
+      if(name === option.name){
+        option.selected = true
+      } else {
+        option.selected = false
+      }
+    })
     this.setState(prevState => {
       efficiencyOptions: [ ...prevState.efficiencyOptions, newObject ]
     })
@@ -310,25 +419,24 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Grid>
-          <Row className="show-grid">
-            <Selections
-              decentralizedOptions  = { this.state.decentralizedOptions }
-              powerPlantOptions     = { this.state.powerPlantOptions }
-              offCampusOptions      = { this.state.offCampusOptions }
-              efficiencyOptions     = { this.state.efficiencyOptions }
-
-              selectOffCampus       = { this.selectOffCampus }
-              selectPowerPlant       = { this.selectPowerPlant }
-              selectDecentralized       = { this.selectDecentralized }
-              selectEfficiency       = { this.selectEfficiency }  />
-            <Outcomes
-              decentralizedOptions  = { this.state.decentralizedOptions }
-              powerPlantOptions     = { this.state.powerPlantOptions }
-              offCampusOptions      = { this.state.offCampusOptions }
-              efficiencyOptions     = { this.state.efficiencyOptions }  />
-          </Row>
-        </Grid>
+        <Selections
+          decentralizedOptions  = { this.state.decentralizedOptions }
+          powerPlantOptions     = { this.state.powerPlantOptions }
+          offCampusOptions      = { this.state.offCampusOptions }
+          efficiencyOptions     = { this.state.efficiencyOptions }
+          addPowerPlant         = { this.addPowerPlant }
+          removePowerPlant      = { this.removePowerPlant }
+          addDecentralized      = { this.addDecentralized }
+          removeDecentralized   = { this.removeDecentralized }
+          addOffCampus          = { this.addOffCampus }
+          removeOffCampus       = { this.removeOffCampus }
+          selectEfficiency      = { this.selectEfficiency }  />
+        <Outcomes
+          selectedPowerOptions  = { this.state.selectedPowerOptions }
+          decentralizedOptions  = { this.state.decentralizedOptions }
+          powerPlantOptions     = { this.state.powerPlantOptions }
+          offCampusOptions      = { this.state.offCampusOptions }
+          efficiencyOptions     = { this.state.efficiencyOptions }  />
       </div>
     );
   }

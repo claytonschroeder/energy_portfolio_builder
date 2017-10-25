@@ -8,7 +8,7 @@
   display: flex;
   .chart-area {
     width: 160px;
-    margin: 10px;
+    margin: 2px;
     background-color: #f4f4f4;
     padding: 10px;
     padding-bottom: 20px;
@@ -28,24 +28,6 @@
       color: blue;
     }
   }
-}
-
-.demand-container {
-  width: max-content;
-  padding: 10px;
-  background-color: #bce6e6;
-  border-radius: 5px;
-  border: 1px solid;
-  margin: 5px;
-}
-
-.performance-container {
-  width: max-content;
-  padding: 10px;
-  background-color: #98f4b4;
-  border-radius: 5px;
-  border: 1px solid;
-  margin: 5px;
 }
 
 .vertical .progress-bar {

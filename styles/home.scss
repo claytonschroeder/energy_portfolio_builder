@@ -1,14 +1,22 @@
+h3{
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
+}
+
 .options-container {
+  padding-left: 10px;
   display: flex;
   .option-row {
     width: max-content;
     padding: 10px;
     background-color: #d4ffff;
-    margin: 10px;
+    margin-left: 2px;
+    margin-bottom: 2px;
     border-radius: 5px;
     border: 1px solid;
     div {
-      padding: 5px;
+      padding: 3px;
       margin-bottom: 4px;
     }
     .not-selected {
@@ -23,6 +31,23 @@
       color: green;
     }
   }
+}
+
+.demand-container {
+  width: max-content;
+  padding: 10px;
+  background-color: #bce6e6;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-right: 2px;
+}
+
+.performance-container {
+  width: max-content;
+  padding: 10px;
+  background-color: #98f4b4;
+  border-radius: 5px;
+  border: 1px solid;
 }
 
 .efficiency-options:hover {
@@ -64,6 +89,10 @@
     float:right;
     width: 20px;
   }
+}
+
+.demand-requirements {
+  padding-left: 2px;
 }
 
 
